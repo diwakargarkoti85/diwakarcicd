@@ -1,20 +1,20 @@
 aks_vnet_name = "aksvnet"
 
-sshkvsecret = "akssshpubkey"
+sshkvsecret = "diwasshpubkey"
 
-clientidkvsecret = "spn-id"
+clientidkvsecret = "diwaspn-id"
 
-spnkvsecret = "spn-secret"
+spnkvsecret = "diwaspn-secret"
 
 vnetcidr = ["10.0.0.0/24"]
 
 subnetcidr = ["10.0.0.0/25"]
 
-keyvault_rg = "aksdemo-rg"
+keyvault_rg = "diwa-RG2"
 
-keyvault_name = "aksdemocluster-kv"
+keyvault_name = "diwakevault"
 
-azure_region = "australiaeast"
+azure_region = "CentralIndia"
 
 resource_group = "aksdemocluster-rg"
 
