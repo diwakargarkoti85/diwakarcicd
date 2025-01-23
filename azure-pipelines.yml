@@ -9,24 +9,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: TerraformCLI@0
-  displayName: Terraform Init
+- task: TerraformCLI@2
+  displayName: Terraform init
   inputs:
-    command: 'init'
+    command: 'validate'
     allowTelemetryCollection: true
 
-- task: TerraformCLI@0
+- task: TerraformCLI@2
   displayName: Terraform Plan
   inputs:
     command: 'plan'
-    environmentServiceName: 'youtube-app-service-connection'
+    environmentServiceName: 'diwademoazure'
     allowTelemetryCollection: false
-
-- task: TerraformCLI@0
-  displayName: Terraform Apply
-  inputs:
-    command: 'apply'
-    environmentServiceName: 'youtube-app-service-connection'
-    allowTelemetryCollection: true
-
-
