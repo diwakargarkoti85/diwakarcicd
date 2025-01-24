@@ -6,6 +6,7 @@
 trigger: none
 
 pool:
+  name: 'default'
   vmImage: ubuntu-latest
 
 steps:
