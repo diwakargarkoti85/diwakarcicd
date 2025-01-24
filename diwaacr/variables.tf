@@ -10,6 +10,10 @@ variable "clientidkvsecret" {
   type = string
 }
 
+variable "spnkvsecret" {
+  type    = string
+}
+
 variable "acrname" {
   type = string
 }
