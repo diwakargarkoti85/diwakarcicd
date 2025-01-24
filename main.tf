@@ -67,11 +67,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     }
   }
 
-  # Role-based access control enabled
-  role_based_access_control {
-    enabled = false
-  }
-
   # Service Principal for the AKS Cluster
   service_principal {
     client_id     = data.azurerm_key_vault_secret.spn_id.value
