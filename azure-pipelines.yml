@@ -12,6 +12,11 @@ steps:
 - task: TerraformCLI@2
   displayName: Terraform init
   inputs:
+    command: 'init'
+    allowTelemetryCollection: true
+- task: TerraformCLI@2
+  displayName: Terraform validate
+  inputs:
     command: 'validate'
     allowTelemetryCollection: true
 
