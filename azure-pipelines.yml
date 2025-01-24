@@ -6,7 +6,7 @@
 trigger: none
 
 pool:
-  vmImage: diwaagentpool
+  vmImage: 'ubuntu-latest'
 
 steps:
 - task: TerraformCLI@2
