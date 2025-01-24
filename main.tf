@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "aks_rg" {
   name     = var.resource_group
   location = var.azure_region
@@ -21,32 +17,11 @@ resource "azurerm_subnet" "aks_subnet" {
   address_prefixes     = var.subnetcidr
 }
 
-data "azurerm_key_vault" "azure_vault" {
-  name                = var.keyvault_name
-  resource_group_name = var.keyvault_rg
-}
-
-data "azurerm_key_vault_secret" "ssh_public_key" {
-  name         = var.sshkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
-
-data "azurerm_key_vault_secret" "spn_id" {
-  name         = var.clientidkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
-
-data "azurerm_key_vault_secret" "spn_secret" {
-  name         = var.spnkvsecret
-  key_vault_id = data.azurerm_key_vault.azure_vault.id
-}
-
 resource "azurerm_kubernetes_cluster" "aks_cluster" {
   name                = var.cluster_name
   location            = azurerm_resource_group.aks_rg.location
   resource_group_name = azurerm_resource_group.aks_rg.name
   dns_prefix          = var.dns_name
-  kubernetes_version  = var.kubernetes_version
 
   default_node_pool {
     name            = var.agent_pools.name
