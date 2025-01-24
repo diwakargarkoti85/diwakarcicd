@@ -26,3 +26,10 @@ steps:
     command: 'plan'
     environmentServiceName: 'diwademoazure'
     allowTelemetryCollection: false
+
+- task: TerraformCLI@2
+  displayName: Terraform apply
+  inputs:
+    command: 'apply'
+    environmentServiceName: 'diwademoazure'
+    allowTelemetryCollection: false
