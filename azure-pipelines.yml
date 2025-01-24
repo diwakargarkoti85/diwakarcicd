@@ -31,3 +31,11 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
     environmentServiceName: 'diwademoazure'
     allowTelemetryCollection: false
+
+- task: TerraformCLI@2
+  displayName: Terraform apply
+  inputs:
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
+    environmentServiceName: 'diwademoazure'
+    allowTelemetryCollection: true
