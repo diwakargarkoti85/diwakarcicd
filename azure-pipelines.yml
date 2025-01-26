@@ -18,10 +18,7 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
     allowTelemetryCollection: false
 
-- script: 
-    cd $(System.DefaultWorkingDirectory)/diwaacr
-    terraform import azurerm_container_registry.diwaacr /subscriptions/4d294b57-bde7-4a42-8c2c-db1c20f6be54/resourceGroups/aksdemocluster-rg/providers/Microsoft.ContainerRegistry/registries/diwakbunj
-  displayName: 'terraform import'
+
   
 - task: TerraformCLI@2
   displayName: Terraform validate
@@ -30,6 +27,13 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
     allowTelemetryCollection: false
 
+- task: TerraformCLI@2
+  displayName: Terraform import
+  inputs:
+    command: 'custom'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
+    commandOptions: 'import azurerm_container_registry.diwaacr /subscriptions/4d294b57-bde7-4a42-8c2c-db1c20f6be54/resourceGroups/aksdemocluster-rg/providers/Microsoft.ContainerRegistry/registries/diwakbunj'
+    allowTelemetryCollection: false
 - task: TerraformCLI@2
   displayName: Terraform plan
   inputs:
