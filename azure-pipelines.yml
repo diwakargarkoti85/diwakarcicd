@@ -28,13 +28,6 @@ steps:
     allowTelemetryCollection: false
     
 - task: TerraformCLI@2
-  inputs:
-    command: 'import'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
-    environmentServiceName: 'diwademoazure'
-    commandOptions: '/subscriptions/4d294b57-bde7-4a42-8c2c-db1c20f6be54/resourceGroups/aksdemocluster-rg/providers/Microsoft.ContainerRegistry/registries/diwakbunj'
-    allowTelemetryCollection: false
-- task: TerraformCLI@2
   displayName: Terraform plan
   inputs:
     command: 'plan'
