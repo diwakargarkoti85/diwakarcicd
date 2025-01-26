@@ -19,6 +19,7 @@ steps:
     allowTelemetryCollection: false
 
 - script: 
+    terraform init
     terraform import azurerm_container_registry.diwaacr /subscriptions/4d294b57-bde7-4a42-8c2c-db1c20f6be54/resourceGroups/aksdemocluster-rg/providers/Microsoft.ContainerRegistry/registries/diwakbunj
   displayName: 'terraform import'
   workingDirectory: '$(System.DefaultWorkingDirectory)/diwaacr'
